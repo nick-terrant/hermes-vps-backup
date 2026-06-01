@@ -110,6 +110,45 @@ Keep the whole briefing under [N] lines.
 
 **Fix:** Check server timezone first (`timedatectl` or `date +%Z`), then offset the cron schedule accordingly. Remind the user of the actual UTC time being set.
 
+### LLM Hallucination of URLs
+
+**Problem:** The model may generate plausible-looking but **completely fabricated URLs** when asked to research topics and present links. This is especially common with `delegate_task` or cron jobs using smaller/faster models. The URLs look real (correct domain, plausible slug path) but return 404s.
+
+**Sign:** User reports "the links don't work" or "they're all broken." Checking URLs reveals they are fabricated — never indexed, never published.
+
+**Fix:** Use the **terminal-based scraping technique** instead of relying on the LLM to recall or construct URLs:
+
+```
+# Primary approach: scrape real pages via curl
+# Step 1: Search Brave for real results
+curl -s "https://search.brave.com/search?q=site:target-site.com+keyword+2026" \
+  -H "User-Agent: Mozilla/5.0" | grep -oP 'href="(https://target-site\.com/[^"]+)"'
+
+# Step 2: Get real titles from each URL found
+curl -sL "URL" -H "User-Agent: Mozilla/5.0" | grep -oP '<title>\K[^<]+'
+
+# Step 3: For JS-heavy sites (IAPP), scrape their embedded Algolia JSON
+curl -sL "https://iapp.org/news/" -H "User-Agent: Mozilla/5.0" | python3 -c "
+import sys,re
+html=sys.stdin.read()
+hits=re.findall(r'\"headline\":\"([^\"]+)\",\"date\":\"([^\"]+)\"',html)
+urls=re.findall(r'\"url\":\"(/news/a/[^\"]+)\"',html)
+for i,(h,d) in enumerate(hits[:20]):
+    print(f'{d} | {h}')
+    print(f'  https://iapp.org{urls[i]}')
+"
+```
+
+**Cron prompt rule:** Include an explicit instruction: "NEVER fabricate URLs. Only include URLs extracted from actual web pages or search results. Verify each link exists before including it."
+
+**Required toolset:** When using this approach, the cron job needs **both** `web` and `terminal` toolsets — `terminal` for the curl scraping, `web` as fallback.
+
+### DuckDuckGo HTML Search Returns Sparse Results
+
+**Problem:** DuckDuckGo HTML search (`html.duckduckgo.com/html/?q=...`) often returns very few results or none at all for site-specific queries. Not reliable as a primary search backend.
+
+**Fix:** Use **Brave search** (`search.brave.com/search?q=...`) as the primary search engine for scraping via curl. It returns more consistent results with extractable URLs.
+
 ### Delivery Visibility
 
 **Problem:** Cron output delivered to "origin" appears as a separate message in the chat, not nested in the current conversation thread. User may not see it if they're focused on the active conversation.
@@ -133,14 +172,18 @@ cronjob(
     name="UK Data Protection & AI News Briefing",
     schedule="0 6 * * *",  # 6 AM UTC = 7 AM BST
     deliver="origin",
-    enabled_toolsets=["web"],
+    enabled_toolsets=["web", "terminal"],  # terminal needed for curl scraping
     prompt="""
     Daily headline briefing on UK data protection and AI news.
 
-    Search queries to run:
-    1. "UK data protection news [current_month] [current_year]"
-    2. "site:iapp.org UK OR ICO OR artificial intelligence"
-    3. "site:out-law.com data protection 2026"
+    CRITICAL: NEVER fabricate URLs. Only include URLs extracted from actual
+    web pages or search results. Verify each link exists before including it.
+
+    Research method — use terminal() to run curl commands:
+    1. curl Brave search for site:ico.org.uk media-centre 2026 articles
+    2. curl iapp.org/news/ and extract Algolia JSON for headlines+URLs
+    3. curl Brave search for law firm blogs (bristows, out-law, fieldfisher)
+    4. Get titles via: curl -sL URL | grep -oP '<title>\\K[^<]+'
 
     Format: Headlines grouped by category (UK DP News, AI & Regulation, Lawyer Blogs).
     Each item: Source | Headline | One sentence | Link.
@@ -148,3 +191,5 @@ cronjob(
     """
 )
 ```
+
+See `references/verified-url-scraping.md` for the full scraping technique with copy-paste commands.
