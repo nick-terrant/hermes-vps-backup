@@ -1,0 +1,1 @@
+UK-based data protection professional. Interested in: UK data protection law, AI regulation, ICO updates, IAPP UK/AI coverage, UK law firm data protection blogs (Out-Law, Fieldfisher, Bristows, Clyde & Co). Prefers headline-level briefings with links for drill-down. Daily briefing scheduled at 7 AM UK time via cron job cdc27dc7f6a2.
