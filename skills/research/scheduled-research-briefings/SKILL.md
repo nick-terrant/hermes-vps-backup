@@ -149,6 +149,17 @@ for i,(h,d) in enumerate(hits[:20]):
 
 **Fix:** Use **Brave search** (`search.brave.com/search?q=...`) as the primary search engine for scraping via curl. It returns more consistent results with extractable URLs.
 
+### Google News RSS Fallback
+
+When Brave search is also unavailable or returning sparse results, fall back to **Google News RSS**. It returns structured XML with real URLs, titles, dates, and source names — no JS rendering needed.
+
+```bash
+curl -s "https://news.google.com/rss/search?q=QUERY+after:YYYY-MM-DD+before:YYYY-MM-DD" | \
+  python3 -c "import sys,re,xml.etree.ElementTree as ET; feed=ET.fromstring(sys.stdin.read()); ..."
+```
+
+Supports `site:`, `after:`, `before:` operators. ~20 results per query. Google proxy URLs need stripping. See `references/verified-url-scraping.md` for the full parsing script.
+
 ### Delivery Visibility
 
 **Problem:** Cron output delivered to "origin" appears as a separate message in the chat, not nested in the current conversation thread. User may not see it if they're focused on the active conversation.
@@ -180,10 +191,12 @@ cronjob(
     web pages or search results. Verify each link exists before including it.
 
     Research method — use terminal() to run curl commands:
-    1. curl Brave search for site:ico.org.uk media-centre 2026 articles
-    2. curl iapp.org/news/ and extract Algolia JSON for headlines+URLs
-    3. curl Brave search for law firm blogs (bristows, out-law, fieldfisher)
-    4. Get titles via: curl -sL URL | grep -oP '<title>\\K[^<]+'
+    1. curl Google News RSS: "https://news.google.com/rss/search?q=UK+data+protection+ICO+after:2026-MM-DD+before:2026-MM-DD"
+    2. curl Brave search for site:ico.org.uk media-centre 2026 articles
+    3. curl iapp.org/news/ and extract Algolia JSON for headlines+URLs
+    4. curl Brave search for law firm blogs (bristows, out-law, fieldfisher)
+    5. Google News RSS for site:theregister.com data breach news
+    6. Get titles via: curl -sL URL | grep -oP '<title>\\\\K[^<]+'
 
     Format: Headlines grouped by category (UK DP News, AI & Regulation, Lawyer Blogs).
     Each item: Source | Headline | One sentence | Link.
