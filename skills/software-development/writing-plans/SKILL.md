@@ -282,6 +282,20 @@ When executing, use the `subagent-driven-development` skill:
 - Code quality review after spec passes
 - Proceed only when both reviews approve
 
+## Plan Mode (Quick Planning)
+
+For rapid planning without full implementation detail, use **Plan Mode** (triggered by `/plan` or "plan first"):
+
+- Do not implement code or edit project files (except the plan file itself)
+- Write a concrete, actionable markdown plan
+- Save under `.hermes/plans/YYYY-MM-DD_HHMMSS-<slug>.md`
+- Include: goal, context, proposed approach, step-by-step plan, files to change, tests, risks
+- After saving, reply with what you planned and the saved path
+
+Use Plan Mode for lighter-weight direction-setting before committing to the full detailed task breakdowns above. If the request is clear enough, write the plan directly; if genuinely underspecified, ask a brief clarifying question first.
+
+---
+
 ## Remember
 
 ```

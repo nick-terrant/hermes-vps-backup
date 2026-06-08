@@ -237,6 +237,25 @@ Source URLs:
 - **[optimization.md](references/optimization.md)** — CPU threading, BLAS, GPU offload heuristics, batch tuning, benchmarks
 - **[troubleshooting.md](references/troubleshooting.md)** — install/convert/quantize/inference/server issues, Apple Silicon, debugging
 
+## vLLM (High-Throughput Serving)
+
+For production-grade LLM serving with continuous batching and OpenAI-compatible API, use [vLLM](https://github.com/vllm-project/vllm):
+
+```bash
+pip install vllm
+vllm serve <model_path_or_hf_repo> --port 8000
+```
+
+Use vLLM when you need:
+- High throughput with continuous batching for concurrent requests
+- PagedAttention for efficient KV cache management
+- OpenAI-compatible `/v1/chat/completions` endpoint at scale
+- Production serving (vs. local development with llama.cpp)
+
+For local single-user inference and development, llama.cpp (above) is simpler and more lightweight. Choose vLLM when serving multiple concurrent users or when throughput is the primary concern.
+
+---
+
 ## Resources
 
 - **GitHub**: https://github.com/ggml-org/llama.cpp

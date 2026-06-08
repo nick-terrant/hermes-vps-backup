@@ -211,6 +211,21 @@ When proceeding with assumptions, label only the important ones.
    - caveats
    - next decision or next iteration
 
+## Quick Sketches (Low-Fidelity Mockups)
+
+For rapid design exploration before committing to a full artifact, produce 2-3 throwaway HTML mockups to compare layout and visual direction.
+
+Use when: the user needs to see structural options before a full design pass, early-stage ideation, or "show me a few layouts" requests.
+
+Process:
+1. Produce 2-3 variants as separate HTML files (e.g., `Sketch A.html`, `Sketch B.html`)
+2. Each variant explores one major layout/hierarchy difference
+3. Minimal styling — enough to communicate structure, not pixel-perfect
+4. Present with a brief description of what each variant tests
+5. After the user picks a direction, proceed with the full claude-design workflow
+
+---
+
 ## Artifact Format Rules
 
 Default to local files.

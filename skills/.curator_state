@@ -1,9 +1,9 @@
 {
-  "last_report_path": null,
-  "last_run_at": "2026-06-01T20:55:37.619011+00:00",
-  "last_run_duration_seconds": null,
-  "last_run_summary": "deferred first run — curator seeded, will run after one interval; use `hermes curator run --dry-run` to preview now",
+  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260608-214358",
+  "last_run_at": "2026-06-08T21:43:58.754782+00:00",
+  "last_run_duration_seconds": 572.097176,
+  "last_run_summary": "auto: no changes; llm: The `.archive/` only shows `vllm` because the `skill_manage delete` action handles its own archiving internally. All 20 skills have been archived (5 apple prunes via skill_manage + 14 consolidations via skill_manage + 1 manual mv for vllm).…\narchived 19 skill(s):\n  • codebase-inspection → github-repo-management\n  • codex → claude-code\n  • debugging-hermes-tui-commands → systematic-debugging\n  • kanban-codex-lane → kanban-orchestrator\n  • kanban-worker → kanban-orchestrator\n  • nano-pdf → ocr-and-documents\n  • node-inspect-debugger → systematic-debugging\n  • opencode → claude-code\n  • plan → writing-plans\n  • python-debugpy → systematic-debugging\n  … and 9 more\nfull report: hermes curator status\nkeep an umbrella stable: hermes curator pin claude-code",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 0
+  "run_count": 1
 }

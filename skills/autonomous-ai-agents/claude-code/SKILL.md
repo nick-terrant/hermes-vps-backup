@@ -511,6 +511,94 @@ terminal(command="tmux new-session -d -s task3 -x 140 -y 40 && tmux send-keys -t
 terminal(command="sleep 30 && for s in task1 task2 task3; do echo '=== '$s' ==='; tmux capture-pane -t $s -p -S -5 2>/dev/null; done")
 ```
 
+## OpenAI Codex CLI (Alternative Coding Agent)
+
+[OpenAI Codex CLI](https://github.com/openai/codex) is a terminal-based autonomous coding agent from OpenAI. Use when the task or environment favors OpenAI models or the user explicitly requests Codex.
+
+### Setup
+
+```bash
+npm install -g @openai/codex
+export OPENAI_API_KEY=...
+```
+
+### Usage
+
+```bash
+# Full auto mode (non-interactive)
+codex --full-auto "Refactor the auth module to use JWT tokens"
+
+# Interactive mode (asks for approval)
+codex "Add error handling to all API calls"
+
+# With specific model
+codex --model o4-mini --full-auto "Fix the bug in src/parser.py"
+```
+
+### Key Differences from Claude Code
+
+| Feature | Claude Code | Codex CLI |
+|---------|-------------|-----------|
+| Provider | Anthropic | OpenAI |
+| Default model | Claude Sonnet | o4-mini |
+| Approval mode | `--dangerously-skip-permissions` | `--full-auto` |
+| Session management | `--continue`, `--resume` | Stateless (one-shot) |
+| Worktrees | `--worktree` built-in | Manual |
+| Streaming | `--output-format stream-json` | Stdout |
+| PR integration | `--from-pr <number>` | None |
+| MCP support | Full | None |
+| Custom agents | `.claude/agents/` | None |
+
+### When to Choose Codex over Claude Code
+
+- User explicitly requests OpenAI/Codex
+- Task is primarily code generation in a language where Codex excels
+- No need for MCP, worktrees, or session persistence
+- Simpler one-shot tasks where stateless execution is fine
+
+---
+
+## OpenCode CLI (Alternative Coding Agent)
+
+[OpenCode](https://github.com/opencode-ai/opencode) is an open-source terminal-based coding agent. Use when the user prefers an open-source alternative or requests OpenCode specifically.
+
+### Setup
+
+```bash
+# Install via Go
+go install github.com/opencode-ai/opencode@latest
+
+# Or via script
+curl -fsSL https://opencode.ai/install | bash
+```
+
+### Usage
+
+```bash
+# Interactive (default)
+opencode
+
+# With initial prompt
+opencode "Refactor the database layer"
+```
+
+### Key Characteristics
+
+- Open-source and self-hosted
+- Works with multiple LLM providers (OpenAI, Anthropic, local models)
+- TUI-based interactive interface
+- File reading, editing, and terminal command execution
+- Session persistence across conversations
+
+### When to Choose OpenCode
+
+- User prefers open-source tools
+- Need provider flexibility (switch between OpenAI, Anthropic, local models)
+- Self-hosting requirement
+- User explicitly requests OpenCode
+
+---
+
 ## CLAUDE.md — Project Context File
 
 Claude Code auto-loads `CLAUDE.md` from the project root. Use it to persist project context:

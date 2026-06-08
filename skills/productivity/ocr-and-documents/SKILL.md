@@ -161,6 +161,30 @@ No extra dependencies needed — pymupdf covers split, merge, search, and text e
 
 ---
 
+## PDF Editing (nano-pdf)
+
+For editing existing PDF text (titles, dates, typos, names) via natural-language instructions:
+
+```bash
+uv pip install nano-pdf
+nano-pdf edit <file.pdf> <page_number> "<instruction>"
+```
+
+Examples:
+```bash
+nano-pdf edit deck.pdf 1 "Change the title to 'Q3 Results'"
+nano-pdf edit report.pdf 3 "Update the date from January to February 2026"
+nano-pdf edit contract.pdf 2 "Change client name from 'Acme Corp' to 'Acme Industries'"
+```
+
+Notes:
+- Page numbering may be 0-based or 1-based — if the edit hits the wrong page, retry with ±1
+- Always verify the output PDF after editing
+- Uses an LLM under the hood — requires an API key
+- Best for text changes; complex layout modifications may need a different approach
+
+---
+
 ## Notes
 
 - `web_extract` is always first choice for URLs

@@ -44,6 +44,59 @@ REPO=$(echo "$OWNER_REPO" | cut -d/ -f2)
 
 ---
 
+## Pre-Commit Quality Gates
+
+Before committing, run automated quality checks as a safety net. These catch issues that manual review can miss.
+
+### Security Scan
+
+```bash
+# Detect secrets/credentials in staged changes
+git diff --staged | grep -in "password\|secret\|api_key\|token.*=\|private_key\|aws_access_key"
+
+# Use trufflehog for thorough secret detection (if installed)
+trufflehog git diff --staged
+
+# Bandit for Python security issues
+bandit -r src/ -ll
+```
+
+### Quality Gates
+
+```bash
+# Lint
+ruff check . 2>&1 | head -30
+# or: eslint . / flake8 / golangci-lint run
+
+# Type check
+mypy src/ --ignore-missing-imports
+# or: tsc --noEmit
+
+# Format check
+ruff format --check .
+# or: prettier --check .
+
+# Test
+pytest -x -q
+# or: npm test / cargo test / go test ./...
+```
+
+### Auto-Fix Flow
+
+When quality gates fail:
+1. Run linter with auto-fix (`ruff check --fix` / `eslint --fix`)
+2. Re-run gates to confirm
+3. Review the auto-fix diff (`git diff`) — auto-fixes can introduce bugs
+4. If issues remain, fix manually and re-check
+
+### Decision: Fix Before or After Commit?
+
+- **Fix before commit** for: security issues, broken tests, type errors
+- **Fix after commit in a follow-up** for: style nits, lint warnings, documentation gaps
+- Never commit with secrets, known security vulnerabilities, or failing tests
+
+---
+
 ## 1. Reviewing Local Changes (Pre-Push)
 
 This is pure `git` — works everywhere, no API needed.

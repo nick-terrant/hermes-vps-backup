@@ -202,6 +202,74 @@ When to use it: long, multi-step, or "keep going until X is true" cards. When NO
 
 Write the body as **explicit acceptance criteria** — the judge is only as good as the goal text. "Translate the README" is weaker than "Translate every section of the README to French; no English sentences remain."
 
+## Worker Guidelines
+
+Workers executing Kanban tasks should follow these anti-pattern rules:
+
+### Common Worker Pitfalls
+
+1. **Don't over-scope.** A card says "fix auth bug" — fix that bug. Don't refactor the entire auth module, add tests for unrelated features, or "improve" things that weren't asked for.
+
+2. **Don't silently skip acceptance criteria.** If the card body lists specific files, tests, or behaviors, address each one. If something can't be done, call `kanban_block()` with an explanation — don't just complete the card with gaps.
+
+3. **Don't invent new tasks.** If you discover related work while executing a card, create a new card for it (via `kanban_create`) instead of scope-creeping the current one.
+
+4. **Do report what you actually did.** `kanban_complete(summary=...)` should describe: what changed, what was tested, what was skipped and why. Vague summaries like "done" waste the reviewer's time.
+
+5. **Do verify your work.** Run the relevant tests, check that files were actually modified, and confirm the acceptance criteria are met before calling `kanban_complete`.
+
+6. **Don't block without explanation.** If you `kanban_block()`, the comment must explain what's blocked and what input is needed. A block with no comment is a silent failure.
+
+### Task Completion Checklist
+
+Before calling `kanban_complete`:
+- [ ] All acceptance criteria from the card body addressed
+- [ ] Changes tested (tests pass, manual verification done)
+- [ ] No unrelated changes mixed in
+- [ ] Summary describes what was done, tested, and any deviations
+- [ ] New issues discovered? Create follow-up cards before completing
+
+---
+
+## Codex Lane (OpenAI Codex CLI as Kanban Worker)
+
+When a kanban card should be executed by OpenAI's Codex CLI rather than a direct Hermes worker, use the Codex lane pattern.
+
+### Setup
+
+```bash
+npm install -g @openai/codex
+export OPENAI_API_KEY=...
+```
+
+### Orchestrator Pattern
+
+Create the card with `assignee` set to the profile that runs Codex CLI. The worker skill for that profile should:
+
+1. Read the card body as the task description
+2. Launch Codex via terminal with the card's instructions:
+   ```bash
+   codex --full-auto "Implement: <card body>"
+   ```
+3. Monitor Codex output for completion or errors
+4. Report results back via `kanban_complete(summary=...)`
+
+### When to Use the Codex Lane
+
+- The task is primarily coding (implementation, refactoring, test writing)
+- The project is a Node.js/TypeScript codebase (Codex's strongest language)
+- The task requires running shell commands and reading/writing files
+- You want a fresh agent context for each task (no accumulated conversation bias)
+
+### When NOT to Use the Codex Lane
+
+- The task requires Hermes-specific tools (web search, browser, vision, delegation)
+- The task involves multi-step reasoning with complex context
+- The codebase language is not well-supported by Codex
+- You need interactive human-in-the-loop during execution
+
+---
+
 ## Recovering stuck workers
 
 When a worker profile keeps crashing, hallucinating, or getting blocked by its own mistakes (usually: wrong model, missing skill, broken credential), the kanban dashboard flags the task with a ⚠ badge and opens a **Recovery** section in the drawer. Three primary actions:

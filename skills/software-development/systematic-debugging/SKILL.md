@@ -274,6 +274,65 @@ This is NOT a failed hypothesis — this is a wrong architecture.
 
 ---
 
+## Runtime Debuggers
+
+When root cause investigation (Phase 1) points to a runtime issue, attach a debugger instead of adding print statements.
+
+### Python (debugpy / pdb)
+
+**Remote debugging with debugpy:**
+```bash
+pip install debugpy
+```
+
+```python
+# In target script
+import debugpy; debugpy.listen(5678)
+debugpy.wait_for_client()  # blocks until debugger attaches
+```
+
+```bash
+# In VS Code launch.json or CLI
+python -m debugpy --listen 5678 --wait-for-client target_script.py
+```
+
+**Built-in pdb REPL (no install needed):**
+```python
+breakpoint()  # Python 3.7+ — drops into pdb REPL
+```
+
+Use when: stepping through code, inspecting local state, watching variable changes, conditional breakpoints.
+
+### Node.js (Chrome DevTools Protocol)
+
+```bash
+node --inspect target.js          # Wait for debugger on port 9229
+node --inspect-brk target.js      # Break on first line
+```
+
+Connect via:
+- Chrome: `chrome://inspect` → Configure → `localhost:9229`
+- CLI: `curl http://localhost:9229/json` for debug targets
+
+Use when: debugging async/await chains, callback hell, inspecting Promises, stepping through event loop behavior.
+
+### Hermes TUI Commands
+
+When debugging Hermes slash commands or TUI behavior:
+1. Check console output: Hermes TUI logs to stderr/stdout
+2. Inspect the gateway: `hermes gateway status` for connection health
+3. Test slash command parsing: run the command with verbose/debug flags
+4. Check skill loading: `hermes skills list` to verify the skill is found
+5. Inspect config: `hermes config get <key>` for expected values
+6. Review logs: check `~/.hermes/logs/` for gateway and worker logs
+
+Common TUI issues:
+- Skill not found: check skill directory structure (SKILL.md must exist)
+- Command hangs: usually a gateway connection issue — check `hermes gateway status`
+- Unexpected tool output: skill may be loading stale cached content — reload skill
+
+---
+
 ## Red Flags — STOP and Follow Process
 
 If you catch yourself thinking:

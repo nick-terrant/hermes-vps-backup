@@ -501,6 +501,33 @@ for g in json.load(sys.stdin):
     print(f\"  {g['id']}  {g['description'] or '(no desc)':40}  {files}\")"
 ```
 
+## Codebase Inspection (pygount)
+
+Analyze repository composition — lines of code, language breakdown, file counts, code-vs-comment ratios.
+
+```bash
+pip install pygount
+cd /path/to/repo
+pygount --format=summary \
+  --folders-to-skip=".git,node_modules,venv,.venv,__pycache__,.cache,dist,build,.next,.tox" \
+  .
+```
+
+**Always exclude dependency/build dirs** — without `--folders-to-skip`, pygount crawls everything and may hang.
+
+Filter by language:
+```bash
+pygount --suffix=py --format=summary .
+pygount --suffix=py,yaml,yml --format=summary .
+```
+
+Pitfalls:
+- Markdown shows 0 code lines (pygount classifies all content as comments) — expected
+- JSON files show low counts — use `wc -l` directly for accurate JSON line counts
+- Large monorepos: use `--suffix` to target specific languages rather than scanning everything
+
+---
+
 ## Quick Reference Table
 
 | Action | gh | git + curl |
