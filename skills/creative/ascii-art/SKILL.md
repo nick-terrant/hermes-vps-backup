@@ -1,14 +1,14 @@
 ---
 name: ascii-art
-description: "ASCII art: pyfiglet, cowsay, boxes, image-to-ascii."
-version: 4.0.0
+description: "ASCII art and video: pyfiglet, cowsay, boxes, image-to-ascii, ASCII video production."
+version: 5.0.0
 author: 0xbyt4, Hermes Agent
 license: MIT
 dependencies: []
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [ASCII, Art, Banners, Creative, Unicode, Text-Art, pyfiglet, figlet, cowsay, boxes]
+    tags: [ASCII, Art, Video, Banners, Creative, Unicode, Text-Art, pyfiglet, figlet, cowsay, boxes]
     related_skills: [excalidraw]
 
 ---
@@ -318,5 +318,28 @@ When tools above don't have what's needed, generate ASCII art directly using the
 5. **Convert an image to ASCII** → ascii-image-converter or jp2a
 6. **QR code** → qrenco.de via curl
 7. **Weather/moon art** → wttr.in via curl
-8. **Something custom/creative** → LLM generation with Unicode palette
+9. **Something custom/creative** → LLM generation with Unicode palette
 9. **Any tool not installed** → install it, or fall back to next option
+
+---
+
+## Tool 5: ASCII Video Production Pipeline
+
+Production pipeline for ASCII art video — converts video/audio/images/generative input into colored ASCII character video output (MP4, GIF, image sequence). Covers: video-to-ASCII conversion, audio-reactive music visualizers, generative ASCII art animations, hybrid video+audio reactive, text/lyrics overlays, real-time terminal rendering.
+
+### When to use
+
+ASCII video, text art video, terminal-style video, character art animation, retro text visualization, audio visualizer in ASCII, converting video to ASCII art, matrix-style effects, or any animated ASCII output.
+
+### Key References
+
+| File | Content |
+|------|---------|
+| `references/video/architecture.md` | Pipeline architecture and data flow |
+| `references/video/composition.md` | Scene composition and camera techniques |
+| `references/video/effects.md` | Visual effects (glow, bloom, color cycling) |
+| `references/video/inputs.md` | Input formats and source handling |
+| `references/video/optimization.md` | Performance tuning and rendering speed |
+| `references/video/scenes.md` | Scene templates and presets |
+| `references/video/shaders.md` | Custom shader writing |
+| `references/video/troubleshooting.md` | Common issues and fixes |

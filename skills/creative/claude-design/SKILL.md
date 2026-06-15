@@ -1,41 +1,33 @@
 ---
 name: claude-design
-description: Design one-off HTML artifacts (landing, deck, prototype).
-version: 1.0.0
+description: "Design HTML artifacts: landing pages, prototypes, decks, design systems, token specs."
+version: 2.0.0
 author: BadTechBandit
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [design, html, prototype, ux, ui, creative, artifact, deck, motion, design-system]
-    related_skills: [design-md, popular-web-designs, excalidraw, architecture-diagram]
+    tags: [design, html, prototype, ux, ui, creative, artifact, deck, motion, design-system, design-tokens, brand]
+    related_skills: [excalidraw, architecture-diagram]
 ---
 
 # Claude Design for CLI/API Agents
 
-Use this skill when the user asks for design work that would normally fit Claude Design, but the agent is running in a CLI/API environment instead of the hosted Claude Design web UI.
+All-in-one design skill for HTML-based artifacts. Covers design process, taste guidelines, brand design system templates, and token spec authoring.
 
-The goal is to preserve Claude Design's useful design behavior and taste while removing hosted-tool plumbing that does not exist in normal agent environments.
+## What This Skill Covers
 
-**Before starting, check for other web-design skills like `popular-web-designs` (ready-to-paste design systems for Stripe, Linear, Vercel, Notion, etc.) and `design-md` (Google's DESIGN.md token spec format).** If the user wants a known brand's look, load `popular-web-designs` alongside this one and let it supply the visual vocabulary. If the deliverable is a token spec file rather than a rendered artifact, use `design-md` instead. Full decision table below.
-
-## When To Use This Skill vs `popular-web-designs` vs `design-md`
-
-Hermes has three design-related skills under `skills/creative/`. They do different jobs — load the right one (or combine them):
-
-| Skill | What it gives you | Use when the user wants... |
+| Mode | Description | When to use |
 |---|---|---|
-| **claude-design** (this one) | Design *process and taste* — how to scope a brief, gather context, produce variants, verify a local HTML artifact, avoid AI-design slop | a from-scratch designed artifact (landing page, prototype, deck, component lab, motion study) with no specific brand or token system dictated |
-| **popular-web-designs** | 54 ready-to-paste design systems — exact colors, typography, components, CSS values for sites like Stripe, Linear, Vercel, Notion, Airbnb | "make it look like Stripe / Linear / Vercel", a page styled after a known brand, or a visual starting point pulled from a real product |
-| **design-md** | Google's DESIGN.md spec format — author/validate/diff/export design-token files, WCAG contrast checking, Tailwind/DTCG export | a formal, persistent, machine-readable design-system *spec file* (tokens + rationale) that lives in a repo and gets consumed by agents over time |
+| **From-scratch design** | Design *process and taste* — scope a brief, gather context, produce variants, verify a local HTML artifact, avoid AI-design slop | A custom-designed artifact (landing page, prototype, deck, component lab) with no specific brand dictated |
+| **Brand design systems** | 54 ready-to-paste design systems in `templates/` — exact colors, typography, components for Stripe, Linear, Vercel, Notion, Airbnb, etc. | "Make it look like Stripe/Linear/Vercel", a page styled after a known brand |
+| **Token spec files** | Google's DESIGN.md format — author/validate/diff/export design-token spec files, WCAG contrast checking, Tailwind/DTCG export | A formal, machine-readable design-system *spec file* that lives in a repo. Starter template: `templates/design-md-starter.md` |
 
 Rule of thumb:
 
-- **Process + taste, one-off artifact** → claude-design
-- **Match a known brand's look** → popular-web-designs (and let claude-design drive the process)
-- **Author the tokens spec itself** → design-md
-
-These compose: use `popular-web-designs` for the visual vocabulary, `claude-design` for how to turn a brief into a thoughtful local HTML file, and `design-md` when the output is the token file rather than a rendered artifact.
+- **Process + taste, one-off artifact** → this skill (from-scratch mode)
+- **Match a known brand's look** → this skill (brand design systems mode — load the matching template from `templates/`)
+- **Author the tokens spec itself** → this skill (token spec mode — start from `templates/design-md-starter.md`)
 
 ## Runtime Mode
 
@@ -107,7 +99,7 @@ Use this skill for:
 - settings, command palettes, modals, cards, forms, empty states
 - redesigns based on screenshots, repos, brand docs, or UI kits
 
-Do not use this skill for pure DESIGN.md token authoring unless the user specifically asks for a DESIGN.md file. Use `design-md` for that.
+Do not use this skill for pure DESIGN.md token authoring unless the user specifically asks for a DESIGN.md file. Use the token spec mode (`templates/design-md-starter.md`) for that.
 
 ## Design Principle: Start From Context, Not Vibes
 
