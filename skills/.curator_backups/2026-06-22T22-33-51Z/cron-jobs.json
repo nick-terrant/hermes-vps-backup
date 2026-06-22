@@ -1,0 +1,51 @@
+{
+  "jobs": [
+    {
+      "id": "cdc27dc7f6a2",
+      "name": "UK Data Protection & AI News Briefing",
+      "prompt": "You are producing a daily headline briefing on UK data protection and AI news for a UK-based data protection professional.\n\nCRITICAL: You must ONLY include links you have verified exist. Do NOT fabricate or guess URLs. Every link must come from an actual web search result or page scrape.\n\n## Research method (follow these steps in order)\n\n### Step 1: Search ICO directly\nUse terminal() to run:\ncurl -s \"https://search.brave.com/search?q=site:ico.org.uk/media-centre/news-and-blogs+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https://ico\\.org\\.uk/about-the-ico/media-centre/news-and-blogs/[0-9]+/[0-9]+/[^\"]*\"'\n\nThen get titles for the top URLs found:\ncurl -sL \"URL\" -H \"User-Agent: Mozilla/5.0\" | grep -oP '<title>\\K[^<]+'\n\n### Step 2: Search IAPP for UK + AI content\nUse terminal() to run:\ncurl -sL \"https://iapp.org/news/\" -H \"User-Agent: Mozilla/5.0\" | python3 -c \"\nimport sys,re\nhtml=sys.stdin.read()\nhits=re.findall(r'\\\"headline\\\":\\\"([^\\\"]+)\\\",\\\"date\\\":\\\"([^\\\"]+)\\\"',html)\nurls=re.findall(r'\\\"url\\\":\\\"(/news/a/[^\\\"]+)\\\"',html)\nfor i,(h,d) in enumerate(hits[:20]):\n    hl=h.lower()\n    if any(k in hl for k in ['uk','ico','ai ','artificial','governance','gdpr','europe']):\n        print(f'{d} | {h}')\n        print(f'  https://iapp.org{urls[i]}')\n        print()\n\"\n\n### Step 3: Search UK law firm blogs\nUse terminal() to run:\ncurl -s \"https://search.brave.com/search?q=inquisitiveminds.bristows.com+data+protection+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https://inquisitiveminds\\.bristows\\.com/[^\"]*\"'\n\ncurl -s \"https://search.brave.com/search?q=out-law.com+data+protection+UK+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https://www\\.out-law\\.com/[^\"]*\"'\n\ncurl -s \"https://search.brave.com/search?q=fieldfisher+data+protection+insight+UK+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https://www\\.fieldfisher\\.com/[^\"]*\"'\n\nGet titles for any URLs found using curl -sL \"URL\" | grep -oP '<title>\\K[^<]+'\n\n### Step 4: General UK DP/AI news\nUse terminal() to run:\ncurl -s \"https://search.brave.com/search?q=UK+data+protection+law+news+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https?://[^\"]*\"' | grep -v 'brave\\|favicon' | head -10\n\ncurl -s \"https://search.brave.com/search?q=UK+AI+regulation+policy+law+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https?://[^\"]*\"' | grep -v 'brave\\|favicon' | head -10\n\n## Output format\n\nCompile findings into a CONCISE briefing. For each item:\n- **Source** (e.g. IAPP, ICO, Bristows, Out-Law)\n- **Headline** \u2014 one line\n- **One-sentence summary** \u2014 what it's about and why it matters\n- **Link** \u2014 ONLY verified URLs from actual search results\n\nGroup under:\n\ud83d\udcf0 **UK Data Protection News**\n\ud83e\udd16 **AI & Regulation News**\n\u2696\ufe0f **Lawyer Blog Updates**\n\nIf nothing new in a category, say \"No new updates\".\n\nRULES:\n- NEVER fabricate a URL. Only include URLs you extracted from actual web pages or search results.\n- Prefer recent articles (last 7 days when possible).\n- Keep total briefing under 50 lines.\n- Headlines only \u2014 user will ask to drill down on anything interesting.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 6 * * *",
+        "display": "0 6 * * *"
+      },
+      "schedule_display": "0 6 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 22
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-06-01T20:25:39.261180+00:00",
+      "next_run_at": "2026-06-23T06:00:00+00:00",
+      "last_run_at": "2026-06-22T06:06:48.281819+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "8618340015",
+        "chat_name": "Nick",
+        "thread_id": null
+      },
+      "enabled_toolsets": [
+        "web",
+        "terminal"
+      ],
+      "workdir": null,
+      "profile": null
+    }
+  ],
+  "updated_at": "2026-06-22T06:06:48.282476+00:00"
+}

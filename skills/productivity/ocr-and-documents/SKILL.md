@@ -1,14 +1,15 @@
 ---
 name: ocr-and-documents
-description: "Extract text from PDFs/scans (pymupdf, marker-pdf)."
-version: 2.3.0
-author: Hermes Agent
+description: "Extract content from PDFs, documents, YouTube videos, and scanned images."
+version: 3.0.0
+author: Hermes Agent (consolidated from ocr-and-documents + youtube-content)
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [PDF, Documents, Research, Arxiv, Text-Extraction, OCR]
+    tags: [PDF, Documents, Research, Arxiv, Text-Extraction, OCR, YouTube, Transcript, Content-Extraction]
     related_skills: [powerpoint]
+    supersedes: [youtube-content]
 ---
 
 # PDF & Document Extraction
@@ -194,3 +195,63 @@ Notes:
 - marker-pdf downloads ~2.5GB of models to `~/.cache/huggingface/` on first use
 - For Word docs: `pip install python-docx` (better than OCR — parses actual structure)
 - For PowerPoint: see the `powerpoint` skill (uses python-pptx)
+
+---
+
+# YouTube Video Extraction
+
+Extract transcripts from YouTube videos and convert into useful formats.
+
+## Setup
+
+```bash
+pip install youtube-transcript-api
+```
+
+## Fetch Transcript
+
+```bash
+# JSON output with metadata
+python scripts/fetch_transcript.py "https://youtube.com/watch?v=VIDEO_ID"
+
+# Plain text (good for piping)
+python scripts/fetch_transcript.py "URL" --text-only
+
+# With timestamps
+python scripts/fetch_transcript.py "URL" --timestamps
+
+# Specific language with fallback chain
+python scripts/fetch_transcript.py "URL" --language tr,en
+```
+
+Accepts any standard YouTube URL format, short links (youtu.be), shorts, embeds, live links, or raw 11-character video ID.
+
+## Output Formats
+
+After fetching, transform into the requested format. For detailed format specifications, see `references/youtube-output-formats.md`.
+
+| Format | Description |
+|:-------|:------------|
+| **Chapters** | Group by topic shifts, timestamped chapter list |
+| **Summary** | Concise 5-10 sentence overview |
+| **Chapter summaries** | Chapters with short paragraph for each |
+| **Thread** | Twitter/X thread format — numbered posts, under 280 chars |
+| **Blog post** | Full article with title, sections, key takeaways |
+| **Quotes** | Notable quotes with timestamps |
+
+Default to summary if no format specified.
+
+## Workflow
+
+1. Fetch transcript with `--text-only --timestamps`
+2. Validate: non-empty, expected language. If empty, retry without `--language`. If still empty, transcripts likely disabled.
+3. Chunk if >50K chars (overlapping ~40K chunks with 2K overlap), summarize each, merge
+4. Transform into requested format
+5. Verify coherence, timestamps, completeness
+
+## Error Handling
+
+- **Transcript disabled**: Tell user; suggest checking subtitles on video page
+- **Private/unavailable**: Relay error, ask user to verify URL
+- **No matching language**: Retry without `--language`, note actual language
+- **Dependency missing**: `pip install youtube-transcript-api`

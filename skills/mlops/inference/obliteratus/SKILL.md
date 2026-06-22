@@ -1,18 +1,32 @@
 ---
 name: obliteratus
-description: "OBLITERATUS: abliterate LLM refusals (diff-in-means)."
-version: 2.0.0
-author: Hermes Agent
+description: "LLM uncensoring: prompt-level jailbreaking (GODMODE) + weight-level abliteration (OBLITERATUS)."
+version: 3.0.0
+author: Hermes Agent (consolidated from obliteratus + godmode)
 license: MIT
 dependencies: [obliteratus, torch, transformers, bitsandbytes, accelerate, safetensors]
-platforms: [linux, macos]
+platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [Abliteration, Uncensoring, Refusal-Removal, LLM, Weight-Projection, SVD, Mechanistic-Interpretability, HuggingFace, Model-Surgery]
+    tags: [Abliteration, Uncensoring, Refusal-Removal, Jailbreak, LLM, Weight-Projection, SVD, GODMODE, Parseltongue, Mechanistic-Interpretability, HuggingFace, Model-Surgery]
     related_skills: [vllm, gguf, huggingface-tokenizers]
+    supersedes: [godmode]
 ---
 
-# OBLITERATUS Skill
+# LLM Uncensoring: OBLITERATUS + GODMODE
+
+Two approaches to removing LLM safety restrictions, consolidated into one skill. Choose based on your situation:
+
+| Approach | How | Works On | Requires |
+|:---------|:----|:---------|:---------|
+| **OBLITERATUS** (below) | Modifies model weights permanently | Open-weight models only | GPU + PyTorch |
+| **GODMODE** (Section II) | Prompt-level jailbreaking via API | Any model (including closed-source) | API access only |
+
+Use OBLITERATUS when you have an open model and want permanent uncensoring. Use GODMODE when you need to work with closed-source models via API, or want quick results without weight modification.
+
+---
+
+# Section I: OBLITERATUS — Weight-Level Abliteration
 
 ## What's inside
 
@@ -340,3 +354,83 @@ Enable with `--contribute` flag. No personal data is collected — only model na
 - **vllm** — Serve abliterated models with high throughput
 - **gguf** — Convert abliterated models to GGUF for llama.cpp
 - **huggingface-tokenizers** — Work with model tokenizers
+
+---
+
+# Section II: GODMODE — Prompt-Level Jailbreaking
+
+Bypass safety filters on API-served LLMs without modifying weights. Works on any model accessible via API, including closed-source models (GPT, Claude, Gemini, Grok).
+
+## When to Use GODMODE
+
+- You don't have GPU access for OBLITERATUS
+- You're working with closed-source models (GPT-4, Claude, Gemini)
+- You need quick results without permanent weight modification
+- You want to race multiple models for the least-censored response
+
+## Three Attack Modes
+
+### 1. GODMODE CLASSIC — System Prompt Templates
+Proven jailbreak system prompts paired with specific models. See `references/jailbreak-templates.md` for all templates.
+
+### 2. PARSELTONGUE — Input Obfuscation (33 Techniques)
+Obfuscates trigger words to evade input-side safety classifiers. Three tiers (light/standard/heavy). See `scripts/parseltongue.py`.
+
+### 3. ULTRAPLINIAN — Multi-Model Racing
+Query N models in parallel via OpenRouter, score responses, return the best. See `scripts/godmode_race.py`.
+
+## Quick Start: Auto-Jailbreak
+
+```python
+import os
+exec(open(os.path.join(os.environ.get("HERMES_HOME", os.path.expanduser("~/.hermes")),
+    "skills/mlops/inference/obliteratus/scripts/load_godmode.py")).read())
+result = auto_jailbreak()
+```
+
+Uses `load_godmode.py` to avoid argparse conflicts in execute_code. Do NOT load individual scripts directly.
+
+## Hermes Config Integration
+
+Set jailbreak system prompt + prefill messages for persistent jailbreaking:
+
+```yaml
+agent:
+  system_prompt: |
+    [your jailbreak prompt here]
+  prefill_messages_file: "prefill.json"
+```
+
+See `templates/prefill-godmode.json` and `templates/prefill-godmode-subtle.json`.
+
+## Strategy Order per Model Family
+
+| Family | Strategy Order |
+|:-------|:---------------|
+| Claude | boundary_inversion → refusal_inversion → prefill_only → parseltongue |
+| GPT | og_godmode → refusal_inversion → prefill_only → parseltongue |
+| Gemini | refusal_inversion → boundary_inversion → prefill_only → parseltongue |
+| Grok | unfiltered_liberated → prefill_only |
+| Hermes | prefill_only (already uncensored) |
+| DeepSeek | parseltongue → refusal_inversion → prefill_only |
+
+## Key Pitfalls (GODMODE-specific)
+
+1. boundary_inversion is patched on Claude Sonnet 4 — no longer works
+2. Parseltongue doesn't help against Claude — it understands all encodings
+3. Prefill alone insufficient for Claude — combine with system prompt tricks
+4. For hard refusals, switch models — ULTRAPLINIAN is the fallback
+5. Hermes models don't need jailbreaking — use directly
+
+## GODMODE References
+
+| File | What |
+|------|------|
+| `references/jailbreak-templates.md` | All GODMODE system prompt templates |
+| `references/refusal-detection.md` | Refusal pattern matching reference |
+| `templates/prefill-godmode.json` | Standard prefill messages |
+| `templates/prefill-godmode-subtle.json` | Subtle prefill variant |
+| `scripts/load_godmode.py` | Safe loader for execute_code |
+| `scripts/auto_jailbreak.py` | Auto-detect and apply best strategy |
+| `scripts/parseltongue.py` | 33 obfuscation techniques |
+| `scripts/godmode_race.py` | Multi-model racing (55 models) |

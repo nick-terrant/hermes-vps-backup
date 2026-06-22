@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260615-220559",
-  "last_run_at": "2026-06-15T22:05:59.508268+00:00",
-  "last_run_duration_seconds": 2276.44131,
-  "last_run_summary": "auto: no changes; llm: All phases complete. 72 → 43 skills. 24 consolidations into 8 umbrellas, 9 pure prunes.\narchived 32 skill(s):\n  • ascii-video → ascii-art\n  • design-md → claude-design\n  • hermes-agent-skill-authoring → hermes-agent\n  • hermes-s6-container-supervision → hermes-agent\n  • native-mcp → hermes-agent\n  • popular-web-designs → claude-design\n  • webhook-subscriptions → hermes-agent\n  • arxiv — pruned (stale)\n  • baoyu-article-illustrator — pruned (stale)\n  • baoyu-comic — pruned (stale)\n  … and 22 more\nfull report: hermes curator status\nkeep an umbrella stable: hermes curator pin ascii-art",
+  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260622-223351",
+  "last_run_at": "2026-06-22T22:33:51.039699+00:00",
+  "last_run_duration_seconds": 1123.000277,
+  "last_run_summary": "auto: no changes; llm: ---\n\n## Consolidation Summary\n\n### Clusters processed\n\n**1. Diagramming cluster** (2 → 1 new umbrella)\n- `architecture-diagram` (SVG HTML diagrams) + `excalidraw` (hand-drawn JSON diagrams) → new **`diagramming`** umbrella\n- Both produce te…\narchived 11 skill(s):\n  • godmode → obliteratus\n  • youtube-content → ocr-and-documents\n  • architecture-diagram — pruned (stale)\n  • audiocraft-audio-generation — pruned (stale)\n  • excalidraw — pruned (stale)\n  • heartmula — pruned (stale)\n  • ideation — pruned (stale)\n  • pixel-art — pruned (stale)\n  • pretext — pruned (stale)\n  • spotify — pruned (stale)\n  … and 1 more\nfull report: hermes curator status\nkeep an umbrella stable: hermes curator pin obliteratus",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 2
+  "run_count": 3
 }
