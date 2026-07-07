@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260629-232529",
-  "last_run_at": "2026-06-29T23:25:29.058306+00:00",
-  "last_run_duration_seconds": 197.570962,
-  "last_run_summary": "auto: no changes; llm: Good. Now let me write the final report.\n\n---\n\n## Curator Pass Report — 2026-06-29\n\n### Scan Summary\n\nI performed a full-content audit of all 29 candidate skills (plus the 5 non-candidate hub skills for context). Here's what I found:\n\n**No …\narchived 1 skill(s):\n  • segment-anything-model — pruned (stale)\nfull report: hermes curator status",
+  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260706-235341",
+  "last_run_at": "2026-07-06T23:53:41.244853+00:00",
+  "last_run_duration_seconds": 357.604259,
+  "last_run_summary": "auto: no changes; llm: Good — all linked files exist. The earlier false positives were from inline documentation mentioning file patterns, not actual file references.\n\nNow, after this thorough analysis, here's my honest assessment:\n\n---\n\n## Analysis Complete\n\nAft…",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 4
+  "run_count": 5
 }
