@@ -1,7 +1,7 @@
 ---
 name: research-paper-writing
 title: Research Paper Writing Pipeline
-description: "Write ML papers for NeurIPS/ICML/ICLR: design→submit."
+description: "ML research lifecycle: paper discovery, knowledge management, experiment design, writing, and submission."
 version: 1.1.0
 author: Orchestra Research
 license: MIT
@@ -2375,3 +2375,29 @@ See [templates/README.md](templates/README.md) for compilation instructions.
 **APIs:** [Semantic Scholar](https://api.semanticscholar.org/api-docs/) | [CrossRef](https://www.crossref.org/documentation/retrieve-metadata/rest-api/) | [arXiv](https://info.arxiv.org/help/api/basics.html)
 
 **Venues:** [NeurIPS](https://neurips.cc/Conferences/2025/PaperInformation/StyleFiles) | [ICML](https://icml.cc/Conferences/2025/AuthorInstructions) | [ICLR](https://iclr.cc/Conferences/2026/AuthorGuide) | [ACL](https://github.com/acl-org/acl-style-files)
+
+---
+
+# Appendix: Research Discovery & Knowledge Management
+
+Tools for the pre-writing phase: finding relevant papers, building literature reviews, managing knowledge bases, and monitoring research feeds.
+
+## ArXiv Paper Search
+
+Search arXiv papers by keyword, author, or ID. Integrates with Semantic Scholar for citation data and BibTeX generation.
+
+**Script:** `scripts/discovery-search_arxiv.py` — Python CLI for arXiv queries.
+
+**Reference:** `references/discovery-arxiv.md` — Full API details, query syntax, and citation integration.
+
+## LLM Knowledge Base (LLM Wiki)
+
+Build persistent, cross-referenced markdown knowledge bases compatible with Obsidian and other PKM tools. Useful for maintaining a personal research library with bidirectional links and metadata.
+
+**Reference:** `references/discovery-llm-wiki.md` — Wiki structure, linking conventions, and management workflows.
+
+## Blog & RSS Feed Monitoring
+
+Track research blogs, arXiv updates, and other feeds. Supports OPML import, auto-discovery, and read/unread state management.
+
+**Reference:** `references/discovery-blogwatcher.md` — Feed setup, monitoring patterns, and integration with research workflows.

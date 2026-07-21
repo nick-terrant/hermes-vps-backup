@@ -1,6 +1,6 @@
 ---
 name: claude-design
-description: "Design HTML artifacts: landing pages, prototypes, decks, design systems, token specs."
+description: "Design HTML artifacts: landing pages, prototypes, decks, design systems, token specs, technical diagrams."
 version: 2.0.0
 author: BadTechBandit
 license: MIT
@@ -586,6 +586,37 @@ When adapting a Claude Design style request into CLI/API mode, use this mental t
 ```text
 You are running in CLI/API mode, not hosted Claude Design. Ignore references to hosted-only tools or preview panes. Produce complete local design artifacts, usually self-contained HTML with embedded CSS/JS, and verify with available local tools before returning. Preserve the design process: gather context, define the system, produce options, avoid filler, and meet a high visual bar.
 ```
+
+## Technical Diagrams
+
+In addition to design artifacts, this skill covers technical diagramming in two formats.
+
+### Format A: SVG Architecture Diagrams (HTML)
+
+Generate polished, dark-themed SVG architecture diagrams as standalone HTML files. No dependencies — opens in any browser. Based on `templates/diagramming-architecture-template.html`.
+
+**When to use:** System architecture diagrams, data flow diagrams, infrastructure layouts, service meshes.
+
+**Process:**
+1. Start from `templates/diagramming-architecture-template.html`
+2. Customize boxes, arrows, labels, colors
+3. Verify in browser
+4. Deliver as standalone HTML file
+
+### Format B: Excalidraw JSON Diagrams
+
+Create hand-drawn-style Excalidraw JSON files for collaborative editing at excalidraw.com. Suitable for flowcharts, concept maps, wireframes, and whiteboard-style sketches.
+
+**When to use:** Collaborative brainstorms, quick sketches, hand-drawn aesthetic needed, editable in Excalidraw.
+
+**Key references:**
+| File | Content |
+|------|---------|
+| `references/diagramming-excalidraw-examples.md` | Example diagrams with full JSON |
+| `references/diagramming-excalidraw-colors.md` | Custom color palettes |
+| `references/diagramming-excalidraw-dark-mode.md` | Dark mode styling |
+
+**Upload script:** `scripts/diagramming-excalidraw-upload.py` — upload JSON to Excalidraw for sharing.
 
 ## Pitfalls
 

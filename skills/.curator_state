@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260714-004020",
-  "last_run_at": "2026-07-14T00:40:20.718482+00:00",
-  "last_run_duration_seconds": 331.02705,
-  "last_run_summary": "auto: no changes; llm: Now I have the complete picture. Here is my assessment.\n\n---\n\n## Consolidation Pass Report\n\n### Landscape summary\n\n**33 active skills** (28 agent-created + 5 bundled) across 11 categories. **4 already archived** from prior consolidation pas…",
+  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260721-011153",
+  "last_run_at": "2026-07-21T01:11:53.377118+00:00",
+  "last_run_duration_seconds": 552.80375,
+  "last_run_summary": "auto: no changes; llm: ---\n\n## Consolidation Pass Summary\n\n**Starting state:** 32 active skills across 11 categories.\n\n**Cluster analysis:** I examined every skill's SKILL.md content, support files (references/, templates/, scripts/), and inter-skill relationship…\narchived 8 skill(s):\n  • dogfood — pruned (stale)\n  • dspy — pruned (stale)\n  • himalaya — pruned (stale)\n  • huggingface-hub — pruned (stale)\n  • jupyter-live-kernel — pruned (stale)\n  • maps — pruned (stale)\n  • polymarket — pruned (stale)\n  • touchdesigner-mcp — pruned (stale)\nfull report: hermes curator status",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 6
+  "run_count": 7
 }
