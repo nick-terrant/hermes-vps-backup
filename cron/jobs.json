@@ -20,17 +20,17 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 62
+        "completed": 63
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-01T20:25:39.261180+00:00",
-      "next_run_at": "2026-08-02T06:00:00+00:00",
-      "last_run_at": "2026-08-01T06:06:02.438265+00:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: **UK Data Protection & AI Daily Briefing \u2014 1 August 2026**\n\n> \u26a0\ufe0f **Note:** Search engines (Bing, Google, DuckDuckGo) returned only generic/irrelevant results for today's queries, and the ICO website, IAPP, Fieldfisher, and RPC Legal all returned JavaScript-only pages or bot-protection challenges. Only the Bristows blog yielded extractable content. I am including only verified URLs from actual page fetches.\n\n---\n\n\ud83d\udcf0 **UK Data Protection News**\n\nNo new updates \u2014 could not access ICO news feed or law firm DP pages today.\n\n---\n\n\ud83e\udd16 **AI & Regulation News**\n\n**Source:** Bristows\n**Headline:** The AI Act's next big deadline is here\n**Summary:** With the EU AI Act reaching its general date of application on 2 August 2026, this piece sets out which provisions take effect and what organisations need to do now.\n**Link:** https://inquisitiveminds.bristows.com/post/102nf8c/the-ai-acts-next-big-deadline-is-here\n\n**Source:** Bristows\n**Headline:** The European Commission's Code of Practice on Transparency of AI-Generated Content\n**Summary:** The Article 50 transparency obligations for AI providers and deployers start applying on 2 August 2026 \u2014 this post examines the Commission's draft Code of Practice designed to help compliance.\n**Link:** https://inquisitiveminds.bristows.com/post/102nfaz/the-european-commissions-code-of-practice-on-transparency-of-ai-generated-conten\n\n**Source:** Bristows\n**Headline:** Microsoft, Copilot and subscription transparency: CMA opens new consumer protection investigation\n**Summary:** The UK CMA has opened an investigation into Microsoft's Copilot subscription practices, signalling growing regulatory scrutiny of AI-as-a-service commercial models.\n**Link:** https://inquisitiveminds.bristows.com/post/102nf1f/microsoft-copilot-and-subscription-transparency-cma-opens-new-consumer-protecti\n\n**Source:** Bristows\n**Headline:** New MHRA guidance on regulation of Ambient Voice Technology (AI Scribes)\n**Summary:** The MHRA has released guidance clarifying when Ambient Voice Technology (AI Scribe) products fall within medical device regulation \u2014 relevant to any healthcare DP practitioners.\n**Link:** https://inquisitiveminds.bristows.com/post/102nf0q/new-mhra-guidance-on-regulation-of-ambient-voice-technology-ai-scribes\n\n---\n\n\u2696\ufe0f **Lawyer Blog Updates**\n\n**Source:** Bristows\n**Headline:** AI governance in practice: moving from policy to live controls\n**Summary:** Practical guidance on turning AI governance frameworks into operational controls that actually work, aimed at organisations that have policies but struggle with implementation.\n**Link:** https://inquisitiveminds.bristows.com/post/102ndgc/ai-governance-in-practice-moving-from-policy-to-live-controls\n\n---\n\n**Other pages confirmed live (but content behind bot-protection):**\n- Fieldfisher: \"Data and Privacy Matters: Legal Updates June 2026\" \u2014 https://www.fieldfisher.com/en/insights/data-and-privacy-matters-legal-updates-june-2026\n- Fieldfisher: \"Growing enforcement activity signals shift in consumer protection landscape\" \u2014 https://www.fieldfisher.com/en/insights/growing-enforcement-activity-signals-shift-in-consumer-protection-landscape\n- Fieldfisher: \"Ofcom publishes its register: what categorised services must do now\" \u2014 https://www.fieldfisher.com/en/insights/ofcom-publishes-its-register-what-categorised-services-must-do-now",
+      "next_run_at": "2026-08-03T06:00:00+00:00",
+      "last_run_at": "2026-08-02T06:02:33.688065+00:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -47,5 +47,5 @@
       "profile": null
     }
   ],
-  "updated_at": "2026-08-01T06:06:02.438997+00:00"
+  "updated_at": "2026-08-02T06:02:33.688643+00:00"
 }
