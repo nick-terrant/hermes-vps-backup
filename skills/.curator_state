@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260804-024628",
-  "last_run_at": "2026-08-04T02:46:28.864117+00:00",
-  "last_run_duration_seconds": 11.324097,
-  "last_run_summary": "auto: no changes; llm: no change",
+  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260811-030902",
+  "last_run_at": "2026-08-11T03:09:02.276119+00:00",
+  "last_run_duration_seconds": 927.250708,
+  "last_run_summary": "auto: no changes; llm: ---\n\n## Consolidation Summary\n\n### Clusters Processed (5 clusters, 10 skills consolidated into 5 umbrellas)\n\n**Cluster 1: SaaS Data APIs** (`airtable` + `linear` + `notion` → **`saas-data-apis`**)\n- All three are REST/GraphQL API clients fo…\narchived 11 skill(s):\n  • airtable — pruned (stale)\n  • claude-code — pruned (stale)\n  • hermes-agent — pruned (stale)\n  • linear — pruned (stale)\n  • llama-cpp — pruned (stale)\n  • manim-video — pruned (stale)\n  • notion — pruned (stale)\n  • obliteratus — pruned (stale)\n  • ocr-and-documents — pruned (stale)\n  • p5js — pruned (stale)\n  … and 1 more\nfull report: hermes curator status",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 9
+  "run_count": 10
 }
