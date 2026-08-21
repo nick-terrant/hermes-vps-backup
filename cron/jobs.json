@@ -27,7 +27,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-01T20:25:39.261180+00:00",
-      "next_run_at": "2026-08-21T06:00:00+00:00",
+      "next_run_at": "2026-08-22T06:00:00+00:00",
       "last_run_at": "2026-08-20T06:09:27.289945+00:00",
       "last_status": "error",
       "last_error": "RuntimeError: **UK Data Protection & AI Daily Briefing \u2014 20 August 2026**\n\n---\n\n\ud83d\udcf0 **UK Data Protection News**\n\nNo new updates \u2014 the ICO news page is JavaScript-rendered and could not be scraped via static HTML. No UK-specific data protection articles appeared in IAPP's top 20 recent stories.\n\n---\n\n\ud83e\udd16 **AI & Regulation News**\n\n**Bristows** \u2014 Agentic AI and Liability (18 Aug)\nExplores common liability issues arising from agentic AI contracts, with specific discussion of UK implications and data protection angles.\n\ud83d\udd17 https://inquisitiveminds.bristows.com/post/102njsw/spotlight-on-agentic-ai-liability\n\n**Bristows** \u2014 Agentic AI and Competition Law (11 Aug)\nBusinesses are liable for commercial decisions made by agentic AI, including those made by third-party AI systems \u2014 key competition law analysis.\n\ud83d\udd17 https://inquisitiveminds.bristows.com/post/102ngur/spotlight-on-agentic-ai-agentic-ai-and-competition-law\n\n**Bristows** \u2014 The Roadmap Podcast: Chinese AI Models and Open-Weight AI (19 Aug)\nPodcast discussing use of Chinese AI models and open-weight AI \u2014 a topic many UK clients are actively asking about.\n\ud83d\udd17 https://inquisitiveminds.bristows.com/post/102nqe0/the-roadmap-podcast-chinese-ai-models-and-open-weight-ai\n\n---\n\n\u2696\ufe0f **Lawyer Blog Updates**\n\n**Bristows** \u2014 The Digital Omnibus on AI: Key Changes to the EU AI Act (12 Aug)\nRound-up of key changes to the EU AI Act \u2014 relevant for UK organisations operating cross-border.\n\ud83d\udd17 https://inquisitiveminds.bristows.com/post/102nh7i/the-digital-omnibus-on-ai-key-changes-to-the-eu-ai-act\n\n---\n\n*Note: Several key sources (ICO, Out-Law, Fieldfisher, Lewis Silkin) use JavaScript-rendered pages that could not be parsed via static HTML fetching. The ICO in particular likely has new content this week that is inaccessible without a headless browser. Consider supplementing with an RSS reader or browser-based scraping for future briefings.*",
@@ -47,5 +47,5 @@
       "profile": null
     }
   ],
-  "updated_at": "2026-08-20T06:09:27.290766+00:00"
+  "updated_at": "2026-08-21T06:00:31.231039+00:00"
 }
