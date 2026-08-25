@@ -19,10 +19,12 @@ Create animations and visual art programmatically. Two frameworks, one skill:
 
 - **Manim CE** — 3Blue1Brown-style math and algorithm explainer videos (Python)
 - **p5.js** — Generative art, interactive sketches, WebGL experiments (JavaScript)
+- **ASCII Art & Video** — Terminal text art (pyfiglet, cowsay, boxes) and ASCII video production
 
 **Pick your section:**
 - [Section I: Manim CE](#section-i-manim-ce-math-and-algorithm-videos) — Python-based math animation
 - [Section II: p5.js](#section-ii-p5js-generative-art-and-interactive-sketches) — JavaScript creative coding
+- [Section III: ASCII Art & Video](#section-iii-ascii-art--video) — Terminal text art and ASCII video pipeline
 
 ---
 
@@ -267,3 +269,30 @@ See `templates/viewer.html` for a ready-made HTML wrapper that serves p5.js sket
 | `scripts/p5js-serve.sh` | Local HTTP server for sketches |
 | `scripts/p5js-render.sh` | Render to video/GIF |
 | `scripts/p5js-export-frames.js` | Frame-by-frame PNG export |
+
+---
+
+# Section III: ASCII Art & Video
+
+## Static ASCII Art Tools
+
+Quick-reference for terminal-based text art (banners, cowsay, boxes, image-to-ASCII, fun utilities).
+
+See `references/ascii-art-tools.md` for the complete tool reference.
+
+## ASCII Video Production
+
+Pipeline for converting video/audio/images into colored ASCII character video output (MP4, GIF, image sequence).
+
+See `references/ascii-video/` for the full production pipeline:
+
+| File | Contents |
+|------|----------|
+| `references/ascii-video/architecture.md` | Pipeline architecture and data flow |
+| `references/ascii-video/composition.md` | Scene composition and camera techniques |
+| `references/ascii-video/effects.md` | Visual effects (glow, bloom, color cycling) |
+| `references/ascii-video/inputs.md` | Input formats and source handling |
+| `references/ascii-video/optimization.md` | Performance tuning and rendering speed |
+| `references/ascii-video/scenes.md` | Scene templates and presets |
+| `references/ascii-video/shaders.md` | Custom shader writing |
+| `references/ascii-video/troubleshooting.md` | Common issues and fixes |

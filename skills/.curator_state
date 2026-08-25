@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260818-034523",
-  "last_run_at": "2026-08-18T03:45:23.419097+00:00",
-  "last_run_duration_seconds": 97.661933,
-  "last_run_summary": "auto: no changes; llm: Now I have the full picture. Let me compile the analysis and deliver the report.\n\n---\n\n## Consolidation Pass Report\n\n### Context\n\nAll 9 candidate skills are entries in the bundled manifest (90 total bundled skills). However, **approximately…",
+  "last_report_path": "/home/agentuser/.hermes/logs/curator/20260825-040100",
+  "last_run_at": "2026-08-25T04:01:00.802932+00:00",
+  "last_run_duration_seconds": 1847.911486,
+  "last_run_summary": "auto: no changes; llm: 8 skills, 6 categories, clean registry. Here's the consolidation summary:\n\n---\n\n## Consolidation Summary\n\n**Before:** 16 skills across 10 categories (many single-skill categories, narrow session artifacts, duplicated domain coverage)\n\n**Aft…\narchived 6 skill(s):\n  • ascii-art — pruned (stale)\n  • baoyu-infographic — pruned (stale)\n  • claude-design — pruned (stale)\n  • google-workspace — pruned (stale)\n  • humanizer — pruned (stale)\n  • xurl — pruned (stale)\nfull report: hermes curator status",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 11
+  "run_count": 12
 }

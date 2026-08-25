@@ -53,6 +53,12 @@ Throwaway experiments to validate an idea before committing to a build. Use when
 
 See `references/spike.md` for the spike methodology.
 
+### 7. Coding Agent Orchestration
+
+Delegate coding tasks to autonomous AI agents (Claude Code, Codex CLI, OpenCode) and spawn/configure Hermes Agent instances for parallel work.
+
+See `references/coding-agents/mcp-server-setup.md` for MCP server configuration, `references/coding-agents/skill-authoring.md` for skill conventions, `references/coding-agents/webhook-subscriptions.md` for webhook setup, and `references/coding-agents/container-supervision.md` for long-running task management.
+
 ## When to Use Which Practice
 
 | Situation | Practice |
@@ -63,3 +69,4 @@ See `references/spike.md` for the spike methodology.
 | Parallelizable dev work | Subagent-Driven Dev (#4) |
 | Multi-agent coordination | Kanban Orchestration (#5) |
 | Exploring unfamiliar territory | Spike (#6) |
+| Delegate coding to autonomous agent | Coding Agent Orchestration (#7) |
