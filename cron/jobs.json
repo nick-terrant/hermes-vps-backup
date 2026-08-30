@@ -27,7 +27,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-01T20:25:39.261180+00:00",
-      "next_run_at": "2026-08-30T06:00:00+00:00",
+      "next_run_at": "2026-08-31T06:00:00+00:00",
       "last_run_at": "2026-08-29T06:13:01.378631+00:00",
       "last_status": "error",
       "last_error": "RuntimeError: # Daily UK Data Protection & AI Briefing \u2014 29 August 2026\n\n\ud83e\udd16 **AI & Regulation News**\n\n**IAPP** | Four clocks, one incident: What the CRA adds to EU incident notifications\nThe Cyber Resilience Act creates a fourth reporting layer for security incidents alongside GDPR, NIS2 and DORA \u2014 critical reading for understanding overlapping EU notification regimes.\nhttps://iapp.org/news/a/four-clocks-one-incident-what-the-cra-adds-to-eu-incident-notifications\n\n**IAPP** | AI governance beyond compliance: Designing systems that protect human agency\nArgues AI governance should move beyond tick-box compliance toward preserving human autonomy in automated decision-making.\nhttps://iapp.org/news/a/ai-governance-beyond-compliance-designing-systems-that-protect-human-agency\n\n\u2696\ufe0f **Lawyer Blog Updates**\n\n**Bristows** | Agentic AI: US court finds that Perplexity's AI agent did not \"access\" Amazon's servers\nA US court ruling on whether an AI agent's behaviour constitutes unauthorised access \u2014 has implications for UK computer misuse and AI liability analysis.\nhttps://inquisitiveminds.bristows.com/post/102nrgf/agentic-ai-us-court-finds-that-perplexitys-ai-agent-did-not-access-amazons-s\n\n**Bristows** | Spotlight on Agentic AI | Liability\nBristows' ongoing series examining liability questions arising from agentic AI systems.\nhttps://inquisitiveminds.bristows.com/post/102njsw/spotlight-on-agentic-ai-liability\n\n**Bristows** | The Digital Omnibus on AI: Key Changes to the EU AI Act\nSummary of recent amendments to the EU AI Act \u2014 relevant for UK organisations operating cross-border.\nhttps://inquisitiveminds.bristows.com/post/102nh7i/the-digital-omnibus-on-ai-key-changes-to-the-eu-ai-act\n\n\ud83d\udcf0 **UK Data Protection News**\n\nNo new updates \u2014 the ICO news page is JavaScript-rendered and could not be scraped this cycle. Out-Law's news page similarly requires JS execution. Brave Search returned rate-limit errors preventing general news searches.\n\n---\n*Note: This briefing is incomplete due to technical access issues with the ICO website (SPA), Out-Law (SPA), and Brave Search (429 rate-limiting). Coverage may improve once these sources become accessible again.*",
@@ -47,5 +47,5 @@
       "profile": null
     }
   ],
-  "updated_at": "2026-08-29T06:13:01.379467+00:00"
+  "updated_at": "2026-08-30T06:00:05.648437+00:00"
 }
