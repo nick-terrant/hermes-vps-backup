@@ -27,7 +27,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-01T20:25:39.261180+00:00",
-      "next_run_at": "2026-09-02T06:00:00+00:00",
+      "next_run_at": "2026-09-03T06:00:00+00:00",
       "last_run_at": "2026-09-01T06:00:57.871744+00:00",
       "last_status": "error",
       "last_error": "RuntimeError: Error code: 401 - {'error': {'message': 'Missing Authentication header', 'code': 401}}",
@@ -47,5 +47,5 @@
       "profile": null
     }
   ],
-  "updated_at": "2026-09-01T06:00:57.872435+00:00"
+  "updated_at": "2026-09-02T06:00:02.244840+00:00"
 }
