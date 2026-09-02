@@ -20,7 +20,7 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 93
+        "completed": 94
       },
       "enabled": true,
       "state": "scheduled",
@@ -28,9 +28,9 @@
       "paused_reason": null,
       "created_at": "2026-06-01T20:25:39.261180+00:00",
       "next_run_at": "2026-09-03T06:00:00+00:00",
-      "last_run_at": "2026-09-01T06:00:57.871744+00:00",
+      "last_run_at": "2026-09-02T06:08:26.738197+00:00",
       "last_status": "error",
-      "last_error": "RuntimeError: Error code: 401 - {'error': {'message': 'Missing Authentication header', 'code': 401}}",
+      "last_error": "RuntimeError: **Daily UK Data Protection & AI Briefing \u2014 2 September 2026**\n\n---\n\n\ud83d\udcf0 **UK Data Protection News**\n\nNo new updates.\n*(Note: The ICO news page and search are client-side rendered/Cloudflare-protected and could not be scraped today. GOV.UK/DSIT news pages are also dynamically rendered. Consider checking https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/ directly.)*\n\n---\n\n\ud83e\udd16 **AI & Regulation News**\n\n**IAPP** \u2014 Back to school, into a new era of children's privacy\nNew article examines evolving children's privacy expectations as the new school year begins, relevant to UK organisations processing children's data under UK GDPR and the Age Appropriate Design Code.\nhttps://iapp.org/news/a/back-to-school-into-a-new-era-of-childrens-privacy\n\n**IAPP** \u2014 The OpenAI-TanStack incident shows why EU AI Act deployers need supplier-incident evidence\nPractical analysis of why organisations deploying AI systems must secure supplier-side incident documentation \u2014 directly relevant to UK firms operating across borders or preparing for the UK's own AI governance framework.\nhttps://iapp.org/news/a/the-openai-tanstack-incident-shows-why-eu-ai-act-deployers-need-supplier-incident-evidence\n\n**IAPP** \u2014 AI governance beyond compliance: Designing systems that protect human agency\nExplores moving AI governance from checkbox compliance to human-centric system design \u2014 aligned with ICO's existing AI guidance and the UK pro-innovation regulatory approach.\nhttps://iapp.org/news/a/ai-governance-beyond-compliance-designing-systems-that-protect-human-agency\n\n**IAPP** \u2014 Notes from the IAPP Europe: The EU's plan to safeguard its data sovereignty\nOverview of EU data sovereignty initiatives including data localisation trends that UK data exporters and international transfer assessors should monitor.\nhttps://iapp.org/news/a/notes-from-the-iapp-europe-the-eu-s-plan-to-safeguard-its-data-sovereignty\n\n---\n\n\u2696\ufe0f **Lawyer Blog Updates**\n\n**Bristows** \u2014 Agentic AI: US court finds that Perplexity's AI agent did not \"access\" Amazon's servers (25 Aug)\nAnalysis of a key US ruling on whether AI agent interactions constitute unauthorised access \u2014 has implications for UK computer misuse and data protection analysis of agentic AI systems.\nhttps://inquisitiveminds.bristows.com/post/102nrgf/agentic-ai-us-court-finds-that-perplexitys-ai-agent-did-not-access-amazons-s\n\n**Bristows** \u2014 Spotlight on Agentic AI and Liability (18 Aug)\nExamines liability frameworks for agentic AI, relevant to UK practitioners advising on AI risk allocation in contracts and regulatory compliance.\nhttps://inquisitiveminds.bristows.com/post/102njsw/spotlight-on-agentic-ai-liability\n\n**Bristows** \u2014 The Roadmap Podcast: Chinese AI models and open-weight AI\nDiscussion of open-weight AI models and their regulatory implications, touching on the UK government's position on open-source AI.\nhttps://inquisitiveminds.bristows.com/post/102nqe0/the-roadmap-podcast-chinese-ai-models-and-open-weight-ai\n\n---\n\n*Coverage note: Out-Law (Pinsent Masons) and Fieldfisher's insights pages are client-side rendered and could not be scraped. The ICO's website and search are behind Cloudflare protection. All URLs above were verified from live page fetches.*",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -47,5 +47,5 @@
       "profile": null
     }
   ],
-  "updated_at": "2026-09-02T06:00:02.244840+00:00"
+  "updated_at": "2026-09-02T06:08:26.738957+00:00"
 }
