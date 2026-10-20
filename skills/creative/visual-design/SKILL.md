@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [design, html, prototype, ux, ui, creative, artifact, deck, infographic, illustration, comic, image-generation, brand, design-system, design-tokens]
     supersedes: [claude-design, baoyu-infographic]
+    related_skills: [comfyui, programmatic-animation]
 ---
 
 # Visual Design
@@ -44,10 +45,10 @@ CLI/API mode — ignore hosted-only tool references (`done()`, `show_html()`, pr
 
 | Brand | File | Brand | File |
 |-------|------|-------|------|
-| Stripe | `templates/html/stripe.md` | Linear | `templates/html/linear.md` |
+| Stripe | `templates/html/stripe.md` | Linear | `templates/html/linear.app.md` |
 | Vercel | `templates/html/vercel.md` | Notion | `templates/html/notion.md` |
 | Airbnb | `templates/html/airbnb.md` | Claude | `templates/html/claude.md` |
-| GitHub | `templates/html/github.md` | Arc | `templates/html/arc.md` |
+| Figma | `templates/html/figma.md` | Raycast | `templates/html/raycast.md` |
 
 See `templates/html/` for the full set of 54 brand templates.
 
@@ -56,7 +57,7 @@ See `templates/html/` for the full set of 54 brand templates.
 | File | Contents |
 |------|----------|
 | `references/html-design/*.md` | Design process guides |
-| `scripts/design-md-starter.md` | Token spec starter template |
+| `templates/html/design-md-starter.md` | Token spec starter template |
 
 ---
 

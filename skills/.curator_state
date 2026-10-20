@@ -1,8 +1,8 @@
 {
-  "last_report_path": "/home/agentuser/.hermes/logs/curator/20261013-051410",
+  "last_report_path": "/home/agentuser/.hermes/logs/curator/20261020-055719",
   "last_run_at": "2026-10-20T05:57:19.388915+00:00",
-  "last_run_duration_seconds": 200.07718,
-  "last_run_summary": "auto: 3 reactivated",
+  "last_run_duration_seconds": 743.380799,
+  "last_run_summary": "auto: 3 reactivated; llm: All checks pass. The two remaining flags are the confirmed-benign example filenames inside research-paper-writing's illustrative README template (content the agent generates into a *user's* project, not pointers into the skill package). The…",
   "last_run_summary_shown_at": null,
   "paused": false,
   "run_count": 20

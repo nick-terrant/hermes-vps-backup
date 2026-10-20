@@ -11,6 +11,7 @@ metadata:
   hermes:
     tags: [Manim, p5.js, Animation, Generative Art, Math Visualization, WebGL, 3Blue1Brown, Creative Coding]
     supersedes: [manim-video, p5js]
+    related_skills: [visual-design, comfyui]
 ---
 
 # Programmatic Animation

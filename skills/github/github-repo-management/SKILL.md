@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [GitHub, Repositories, Git, Releases, Secrets, Configuration, Pull-Requests, Issues, Code-Review, CI/CD, Authentication]
-    related_skills: []
+    related_skills: [software-engineering-practices]
 ---
 
 # GitHub Operations — Complete Reference
