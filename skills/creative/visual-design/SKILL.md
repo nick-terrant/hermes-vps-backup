@@ -59,11 +59,22 @@ See `templates/html/` for the full set of 54 brand templates.
 | `references/html-design/*.md` | Design process guides |
 | `templates/html/design-md-starter.md` | Token spec starter template |
 
+### Diagram Share Utility
+
+`scripts/diagramming-excalidraw-upload.py` — upload an `.excalidraw` file to excalidraw.com and print a shareable URL. The diagram is encrypted client-side (AES-GCM); the key lives in the URL fragment, so the server never sees plaintext. Requires `pip install cryptography`.
+
+```bash
+python3 scripts/diagramming-excalidraw-upload.py ~/diagrams/architecture.excalidraw
+# → https://excalidraw.com/#json=<id>,<encryption-key>
+```
+
 ---
 
 # Section II: AI Image Generation
 
 Uses the `image_generate` tool (prompt-only, returns URL). All modes share core principles: data fidelity, style consistency, reproducible prompt files.
+
+**Boundary note:** `image_generate` is the fast path for prompt-only illustration. For full control over Stable Diffusion/Flux pipelines, ControlNet, inpainting, img2img, or model-driven video, use the `comfyui` skill instead.
 
 ## Common Principles
 

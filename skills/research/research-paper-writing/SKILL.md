@@ -11,7 +11,7 @@ metadata:
   hermes:
     tags: [Research, Paper Writing, Experiments, ML, AI, NeurIPS, ICML, ICLR, ACL, AAAI, COLM, LaTeX, Citations, Statistical Analysis]
     category: research
-    related_skills: [software-engineering-practices]
+    related_skills: [software-engineering-practices, workspace-tools]
     requires_toolsets: [terminal, files]
 
 ---
@@ -246,7 +246,14 @@ find . -name "*.bib"
 
 ### Step 1.2: Search for Related Work
 
-**Load the `arxiv` skill** for structured paper discovery: `skill_view("arxiv")`. It provides arXiv REST API search, Semantic Scholar citation graphs, author profiles, and BibTeX generation.
+**Structured paper discovery is built into this skill** — the former standalone `arxiv`, `blogwatcher`, and `llm-wiki` skills were absorbed here as references and a script:
+
+- `scripts/discovery-search_arxiv.py` — arXiv query CLI (keyword, author, or ID search)
+- `references/discovery-arxiv.md` — arXiv REST API, Semantic Scholar citation graphs, BibTeX generation
+- `references/discovery-blogwatcher.md` — blog/RSS research-feed monitoring
+- `references/discovery-llm-wiki.md` — persistent Obsidian-compatible knowledge bases
+
+To read full PDFs downloaded during review, extract text with the `workspace-tools` skill's document tools (`extract_pymupdf.py`).
 
 Use `web_search` for broad discovery, `web_extract` for fetching specific papers:
 
@@ -1737,20 +1744,9 @@ The main pipeline above targets empirical ML papers. Other paper types require d
 
 ## Hermes Agent Integration
 
-Tool-usage patterns, state management with `memory`/`todo`, cron-based experiment monitoring, and communication/reporting patterns for running this pipeline inside Hermes: see [references/hermes-integration.md](references/hermes-integration.md).
+Tool-usage patterns, state management with `memory`/`todo`, cron-based experiment monitoring, and communication/reporting patterns for running this pipeline inside Hermes: see [references/hermes-integration.md](references/hermes-integration.md) (includes the results-reporting template).
 
 ---
-
-## Experiment: <name>
-Status: Complete / Running / Failed
-
-| Task | Method A | Method B | Method C |
-|------|---------|---------|---------|
-| Task 1 | 85.2 | 82.1 | **89.4** |
-
-Key finding: <one sentence>
-Next step: <what happens next>
-```
 
 ### Decision Points Requiring Human Input
 

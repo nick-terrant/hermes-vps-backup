@@ -159,4 +159,15 @@ cronjob("create", {
 - Intermediate steps that don't need attention
 
 **Report format** — always include structured data:
+
+```
+## Experiment: <name>
+Status: Complete / Running / Failed
+
+| Task | Method A | Method B | Method C |
+|------|---------|---------|---------|
+| Task 1 | 85.2 | 82.1 | **89.4** |
+
+Key finding: <one sentence>
+Next step: <what happens next>
 ```

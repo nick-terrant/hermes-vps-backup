@@ -22,6 +22,8 @@ Create animations and visual art programmatically. Two frameworks, one skill:
 - **p5.js** — Generative art, interactive sketches, WebGL experiments (JavaScript)
 - **ASCII Art & Video** — Terminal text art (pyfiglet, cowsay, boxes) and ASCII video production
 
+**Boundary note:** this skill covers *code-driven* animation. For *AI-model-driven* video generation (Wan, AnimateDiff, Hunyuan) use the `comfyui` skill instead.
+
 **Pick your section:**
 - [Section I: Manim CE](#section-i-manim-ce-math-and-algorithm-videos) — Python-based math animation
 - [Section II: p5.js](#section-ii-p5js-generative-art-and-interactive-sketches) — JavaScript creative coding

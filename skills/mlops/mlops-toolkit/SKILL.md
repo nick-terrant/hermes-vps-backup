@@ -87,10 +87,10 @@ print(out["choices"][0]["text"])
 Two approaches to removing LLM safety restrictions:
 
 ### Weight-level (OBLITERATUS)
-Permanently modifies model weights. See `references/local-llm/abliteration*.md`.
+Permanently modifies model weights. See `references/local-llm/obliteratus-methods.md`, `references/local-llm/obliteratus-analysis-modules.md`, and `references/local-llm/refusal-detection.md`; configs in `templates/local-llm/abliteration-config.yaml` and `templates/local-llm/batch-abliteration.yaml`.
 
 ### Prompt-level (GODMODE)
-Jailbreaking for API-served models. See `references/local-llm/godmode*.md`.
+Jailbreaking for API-served models. See `references/local-llm/jailbreak-templates.md` and `scripts/local-llm/godmode_race.py` / `load_godmode.py` / `parseltongue.py`.
 
 ---
 
