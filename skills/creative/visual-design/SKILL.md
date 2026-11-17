@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [design, html, prototype, ux, ui, creative, artifact, deck, infographic, illustration, comic, image-generation, brand, design-system, design-tokens]
-    supersedes: [claude-design, baoyu-infographic]
+    supersedes: [claude-design, baoyu-infographic, article-illustration, comics, excalidraw, design-md, popular-web-designs]
     related_skills: [comfyui, programmatic-animation]
 ---
 

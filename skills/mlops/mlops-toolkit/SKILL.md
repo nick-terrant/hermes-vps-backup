@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [mlops, llama.cpp, GGUF, Quantization, Abliteration, GODMODE, benchmarking, lm-eval-harness, wandb, experiment-tracking, sweeps]
-    supersedes: [local-llm, ml-evaluation, llama-cpp, obliteratus]
+    supersedes: [local-llm, ml-evaluation, llama-cpp, obliteratus, godmode, evaluating-llms-harness, weights-and-biases]
 ---
 
 # MLOps Toolkit

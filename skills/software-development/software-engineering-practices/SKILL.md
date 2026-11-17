@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [engineering, planning, debugging, TDD, testing, development, kanban, subagent, spike, workflow]
     related_skills: [github-repo-management]
+    supersedes: [test-driven-development, writing-plans, systematic-debugging, subagent-driven-development, spike, kanban-orchestrator, kanban-worker, hermes-s6-container-supervision, native-mcp, hermes-agent-skill-authoring, webhook-subscriptions]
 ---
 
 # Software Engineering Practices

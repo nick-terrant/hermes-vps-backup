@@ -13,6 +13,7 @@ metadata:
     category: research
     related_skills: [software-engineering-practices, workspace-tools]
     requires_toolsets: [terminal, files]
+    supersedes: [arxiv, blogwatcher, llm-wiki]
 
 ---
 

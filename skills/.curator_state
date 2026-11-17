@@ -1,8 +1,8 @@
 {
-  "last_report_path": "/home/agentuser/.hermes/logs/curator/20261110-074339",
+  "last_report_path": "/home/agentuser/.hermes/logs/curator/20261117-084059",
   "last_run_at": "2026-11-17T08:40:59.418791+00:00",
-  "last_run_duration_seconds": 1094.792025,
-  "last_run_summary": "auto: no changes",
+  "last_run_duration_seconds": 1581.887016,
+  "last_run_summary": "auto: no changes; llm: Memory is disabled in this environment — noted, moving on. The audit is complete and fully verified. Final report:\n\n---\n\n# Skills Library Audit — Final Report\n\n## Context\nPrior curator passes had already consolidated the library from ~90 bu…",
   "last_run_summary_shown_at": null,
   "paused": false,
   "run_count": 24

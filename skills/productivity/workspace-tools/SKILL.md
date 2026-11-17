@@ -171,21 +171,22 @@ Auth: `Authorization: $LINEAR_API_KEY` (no Bearer prefix). Rate: 5,000 req/hour.
 
 ### Section II-C: Notion
 
-Notes, databases, documents. Two paths: `ntn` CLI (preferred) or HTTP + curl.
+Notes, databases, documents via the HTTP REST API + curl (no Notion CLI is installed — the `ntn` PyPI package is an unrelated AI coding agent).
 
 **Setup:** Create integration at https://notion.so/my-integrations, set `NOTION_API_KEY`, share pages with integration.
 
 ```bash
-# ntn CLI (preferred)
-ntn api v1/search query="page title"
-ntn api v1/pages/{page_id}/markdown
-ntn api v1/pages parent[page_id]=xxx properties[title][0][text][content]="Notes" markdown="# Agenda"
-
-# HTTP fallback
+# Search pages
 curl -s -X POST "https://api.notion.com/v1/search" \
-  -H "Authorization: Bearer *** \
+  -H "Authorization: Bearer $NOTION_API_KEY" \
   -H "Notion-Version: 2025-09-03" -H "Content-Type: application/json" \
   -d '{"query": "page title"}'
+
+# Create a page (parent must be shared with the integration)
+curl -s -X POST "https://api.notion.com/v1/pages" \
+  -H "Authorization: Bearer $NOTION_API_KEY" \
+  -H "Notion-Version: 2025-09-03" -H "Content-Type: application/json" \
+  -d '{"parent": {"page_id": "xxx"}, "properties": {"Name": {"title": [{"text": {"content": "Notes"}}]}}}'
 ```
 
 API Version: `Notion-Version: 2025-09-03`. Properties: title, rich_text, select, multi_select, date, checkbox, number.
@@ -205,6 +206,7 @@ Create, read, edit, and extract content from documents.
 | YouTube | Transcript fetch | `scripts/document-tools/fetch_transcript.py URL` |
 | Markdown | Marker | `scripts/document-tools/extract_marker.py file.pdf` |
 | Image | Vision model | `vision_analyze(image_url="path")` |
+| DOCX (tracked changes) | python (lxml) | `scripts/document-tools/office/helpers/merge_runs.py file.docx` / `simplify_redlines.py file.docx` |
 
 ## PDF, OCR, Transcripts
 
