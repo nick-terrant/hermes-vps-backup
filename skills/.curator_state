@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/agentuser/.hermes/logs/curator/20261117-084059",
-  "last_run_at": "2026-11-17T08:40:59.418791+00:00",
-  "last_run_duration_seconds": 1581.887016,
-  "last_run_summary": "auto: no changes; llm: Memory is disabled in this environment — noted, moving on. The audit is complete and fully verified. Final report:\n\n---\n\n# Skills Library Audit — Final Report\n\n## Context\nPrior curator passes had already consolidated the library from ~90 bu…",
+  "last_report_path": "/home/agentuser/.hermes/logs/curator/20261124-084604",
+  "last_run_at": "2026-11-24T08:46:04.404912+00:00",
+  "last_run_duration_seconds": 225.51437,
+  "last_run_summary": "auto: no changes; llm: Memory isn't available in this curator session, so the library-state record lives in this report instead.\n\n---\n\n# Curator pass — consolidation report\n\n## Landscape scanned\n\n8 active skills total (verified via `skills_list` + full directory …",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 24
+  "run_count": 25
 }

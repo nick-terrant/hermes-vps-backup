@@ -1,0 +1,51 @@
+{
+  "jobs": [
+    {
+      "id": "cdc27dc7f6a2",
+      "name": "UK Data Protection & AI News Briefing",
+      "prompt": "You are producing a daily headline briefing on UK data protection and AI news for a UK-based data protection professional.\n\nCRITICAL: You must ONLY include links you have verified exist. Do NOT fabricate or guess URLs. Every link must come from an actual web search result or page scrape.\n\n## Research method (follow these steps in order)\n\n### Step 1: Search ICO directly\nUse terminal() to run:\ncurl -s \"https://search.brave.com/search?q=site:ico.org.uk/media-centre/news-and-blogs+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https://ico\\.org\\.uk/about-the-ico/media-centre/news-and-blogs/[0-9]+/[0-9]+/[^\"]*\"'\n\nThen get titles for the top URLs found:\ncurl -sL \"URL\" -H \"User-Agent: Mozilla/5.0\" | grep -oP '<title>\\K[^<]+'\n\n### Step 2: Search IAPP for UK + AI content\nUse terminal() to run:\ncurl -sL \"https://iapp.org/news/\" -H \"User-Agent: Mozilla/5.0\" | python3 -c \"\nimport sys,re\nhtml=sys.stdin.read()\nhits=re.findall(r'\\\"headline\\\":\\\"([^\\\"]+)\\\",\\\"date\\\":\\\"([^\\\"]+)\\\"',html)\nurls=re.findall(r'\\\"url\\\":\\\"(/news/a/[^\\\"]+)\\\"',html)\nfor i,(h,d) in enumerate(hits[:20]):\n    hl=h.lower()\n    if any(k in hl for k in ['uk','ico','ai ','artificial','governance','gdpr','europe']):\n        print(f'{d} | {h}')\n        print(f'  https://iapp.org{urls[i]}')\n        print()\n\"\n\n### Step 3: Search UK law firm blogs\nUse terminal() to run:\ncurl -s \"https://search.brave.com/search?q=inquisitiveminds.bristows.com+data+protection+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https://inquisitiveminds\\.bristows\\.com/[^\"]*\"'\n\ncurl -s \"https://search.brave.com/search?q=out-law.com+data+protection+UK+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https://www\\.out-law\\.com/[^\"]*\"'\n\ncurl -s \"https://search.brave.com/search?q=fieldfisher+data+protection+insight+UK+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https://www\\.fieldfisher\\.com/[^\"]*\"'\n\nGet titles for any URLs found using curl -sL \"URL\" | grep -oP '<title>\\K[^<]+'\n\n### Step 4: General UK DP/AI news\nUse terminal() to run:\ncurl -s \"https://search.brave.com/search?q=UK+data+protection+law+news+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https?://[^\"]*\"' | grep -v 'brave\\|favicon' | head -10\n\ncurl -s \"https://search.brave.com/search?q=UK+AI+regulation+policy+law+2026\" -H \"User-Agent: Mozilla/5.0\" | grep -oP 'href=\"https?://[^\"]*\"' | grep -v 'brave\\|favicon' | head -10\n\n## Output format\n\nCompile findings into a CONCISE briefing. For each item:\n- **Source** (e.g. IAPP, ICO, Bristows, Out-Law)\n- **Headline** \u2014 one line\n- **One-sentence summary** \u2014 what it's about and why it matters\n- **Link** \u2014 ONLY verified URLs from actual search results\n\nGroup under:\n\ud83d\udcf0 **UK Data Protection News**\n\ud83e\udd16 **AI & Regulation News**\n\u2696\ufe0f **Lawyer Blog Updates**\n\nIf nothing new in a category, say \"No new updates\".\n\nRULES:\n- NEVER fabricate a URL. Only include URLs you extracted from actual web pages or search results.\n- Prefer recent articles (last 7 days when possible).\n- Keep total briefing under 50 lines.\n- Headlines only \u2014 user will ask to drill down on anything interesting.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 6 * * *",
+        "display": "0 6 * * *"
+      },
+      "schedule_display": "0 6 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 177
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-06-01T20:25:39.261180+00:00",
+      "next_run_at": "2026-11-25T06:00:00+00:00",
+      "last_run_at": "2026-11-24T06:10:03.901636+00:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: # \ud83d\udcf0 UK Data Protection & AI Daily Briefing \u2014 Tue 24 Nov 2026\n\n*(Note: Brave/Bing/DDG partly bot-blocked today; ICO items pulled directly from the ICO's own news API, all links verified live.)*\n\n\ud83d\udcf0 **UK Data Protection News**\n\n- **ICO** \u2014 **GTA 6 release could create opportunities for scammers** (16 Nov)\n  ICO warns the huge game launch is fertile ground for phishing/pre-order scams targeting consumers' personal and payment data.\n  https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/11/gta-6-release-could-create-opportunities-for-scammers/\n\n- **ICO** \u2014 **UK health sector warned to tackle medical record snooping** (12 Nov)\n  ICO urges health leaders to stop staff viewing records without a legitimate reason amid a wave of snooping complaints \u2014 a live enforcement theme for NHS/public sector DP teams.\n  https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/11/uk-health-sector-warned-to-tackle-medical-record-snooping/\n\n- **ICO** \u2014 **Solar firm fined \u00a3105,000 for ~200,000 nuisance calls** (4 Nov)\n  PECR enforcement continues at pace: nearly 500 calls a day for 13 months, a useful benchmark for marketing-compliance risk.\n  https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/11/solar-firm-made-almost-500-nuisance-calls-every-day-for-a-year/\n\n\ud83e\udd16 **AI & Regulation News**\n\n- **Osborne Clarke** \u2014 **ICO's new guidance on AI-assisted DSARs: same rights, new practical challenges** (17\u201323 Nov)\n  The ICO has published dedicated guidance on SARs generated with AI; analysis flags controller duties over AI-drafted requests and hallucination risks when responding.\n  https://www.osborneclarke.com/insights/uk-ico-flags-same-rights-new-practical-challenges-ai-assisted-data-subject-access-requests\n  ICO guidance hub: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/subject-access-requests/subject-access-requests-generated-by-artificial-intelligence/\n\n- **Hunton** \u2014 **UK ICO Issues Guidance on AI-Assisted Data Subject Access Requests** (23 Nov)\n  US-facing write-up of the same guidance \u2014 useful signal of international attention on the ICO's AI-and-DSAR stance.\n  https://www.hunton.com/privacy-and-cybersecurity-law-blog/uk-ico-issues-guidance-on-ai-assisted-data-subject-access-requests\n\n- **Biometric Update** \u2014 **ICO flags urgent oversight gaps in Met Police retrospective facial recognition** (23 Nov)\n  Coverage of the ICO's audit of the Met's retro-FR searches (29 recommendations) \u2014 directly relevant to LE biometrics governance.\n  https://www.biometricupdate.com/202611/ico-flags-urgent-oversight-gaps-in-met-police-retrospective-facial-recognition\n\n- **IAPP** \u2014 **McGrath unpacks European Commission's stance on digital rulebook updates** (23 Nov)\n  Where EU digital law consolidation is heading \u2014 relevant backdrop for UK firms tracking divergence.\n  https://iapp.org/news/a/mcgrath-unpacks-european-commissions-stance-on-digital-rulebook-updates\n\n- **IAPP** \u2014 **One year on, Digital Omnibus may face delays** (19 Nov)\n  EU GDPR reform timetable slipping \u2014 implications for UK adequacy and cross-border compliance planning.\n  https://iapp.org/news/a/one-year-on-digital-omnibus-may-face-delays\n\n\u2696\ufe0f **Lawyer Blog Updates**\n\n- **Pinsent Masons (Out-Law)** \u2014 **ICO raises smart glasses privacy risks for UK employers** (19 Nov)\n  Practical guidance angle on wearable AI devices in the workplace: transparency, proportionality and employee monitoring rules.\n  https://www.pinsentmasons.com/out-law/news/ico-smart-glasses-privacy-risks-uk-employers\n\n- **Pinsent Masons (Out-Law)** \u2014 **EU GDPR enforcement puts spotlight on AI-driven recruitment**\n  DPAs targeting automated hiring tools \u2014 a warning for UK employers running AI screening across EU candidates.\n  https://www.pinsentmasons.com/out-law/news/eu-gdpr-enforcement-puts-spotlight-on-ai-driven-recruitment\n\n- **IAPP** \u2014 **Resilient by design: when AI changes faster than its controls** (18 Nov)\n  Governance commentary on keeping AI controls effective amid rapid model churn.\n  https://iapp.org/news/a/resilient-by-design-when-ai-changes-faster-than-its-controls\n\n*Sources inaccessible today (Cloudflare/JS-walled): Bristows Inquisitive Minds, Fieldfisher, Out-Law standalone site, BBC direct \u2014 stories they broke (e.g. TfL Oyster breach) excluded for lack of a verifiable link.*",
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "8618340015",
+        "chat_name": "Nick",
+        "thread_id": null
+      },
+      "enabled_toolsets": [
+        "web",
+        "terminal"
+      ],
+      "workdir": null,
+      "profile": null
+    }
+  ],
+  "updated_at": "2026-11-24T06:10:03.902573+00:00"
+}
